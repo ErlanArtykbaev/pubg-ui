@@ -13,12 +13,10 @@ const LoginController = () => {
   const loginModal = useSelector(state => state.modalLogin)
   const registerModal = useSelector(state => state.modalRegister)
   const dispatch = useDispatch()
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [user, setUser] = useState({
-    username: 'erlan',
-    avatar: avatar,
-    money: 400
-  })
+  const balance = useSelector(state => state.auth.balance)
+  const name = useSelector(state => state.auth.name)
+  const phone = useSelector(state => state.auth.phone)
+  const loggedIn = useSelector(state => state.isLogged)
 
   const showLog = () => {
     dispatch(showLogin())
@@ -33,8 +31,9 @@ const LoginController = () => {
       {
         loggedIn ? (
           <LoginUserInfo
-            username={user.username}
-            userMoney={user.money}
+            username={name}
+            userMoney={balance}
+            phone={phone}
             avatar={avatar}
           />
         ) : (

@@ -1,19 +1,23 @@
 import {
-  GET_ALL,
+  GET_ALL, GET_BALANCE, GET_NAME, GET_PHONE,
   GET_TOKEN,
-  NEW_USER,
-  GET_PROFILE, SET_TOKEN
+  SET_TOKEN, SET_USER
 } from "../actionTypes";
 
 const initialState = {
-  username: 'admin',
-  email: 'admin@test.com',
-  password: 'adminadmin',
-  token: 'kaka',
-  profile: {
-    name: 'Aman',
-    surname: 'Esen'
-  }
+  balance: "0",
+  contact_number: "",
+  date_joined: "initial",
+  email: null,
+  id: 1,
+  is_active: true,
+  is_staff: true,
+  last_login: "hz",
+  link_code: null,
+  name: "initial",
+  phone: "initial",
+  player_id: "initial",
+  token: "initial",
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,9 +25,6 @@ const reducer = (state = initialState, action) => {
     case GET_ALL:
       return {
         ...state,
-        profile: {
-          ...state.profile
-        }
       }
     case GET_TOKEN:
       return state.token
@@ -32,25 +33,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         token: action.payload
       }
-    case NEW_USER:
+    case GET_NAME:
+      return state.name
+    case GET_BALANCE:
+      return state.balance
+    case GET_PHONE:
+      return state.phone
+    case SET_USER:
       return {
-        ...state,
-
-        username: action.username,
-        email: action.email,
-        password: action.password
+        ...action.payload
       }
-    case GET_PROFILE:
-    return {
-      ...state,
-      profile: action.payload
-    }
     default:
       return {
         ...state,
-        profile: {
-          ...state.profile
-        }
       }
   }
 }

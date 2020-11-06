@@ -2,10 +2,8 @@ import {
   GET_ALL,
   GET_TOKEN,
   NEW_USER,
-  SET_EMAIL,
-  SET_PASSWORD,
-  SET_USERNAME,
-  GET_PROFILE, SET_TOKEN
+  SET_USER,
+  GET_PROFILE, SET_TOKEN, GET_NAME, GET_PHONE, GET_BALANCE
 } from "../actionTypes";
 
 export const getToken = () => ({
@@ -26,19 +24,19 @@ export const newUser = (user) => ({
   payload: user
 })
 
-export const setUsername = (name) => ({
-  type: SET_USERNAME,
-  payload: name
+export const setUser = (payload) => ({
+  type: SET_USER,
+  payload
 })
 
-export const setPassword = (pass) => ({
-  type: SET_PASSWORD,
-  payload: pass
+export const getName = () => ({
+  type: GET_NAME,
 })
-
-export const setEmail = (email) => ({
-  type: SET_EMAIL,
-  payload: email
+export const getPhone = () => ({
+  type: GET_PHONE,
+})
+export const getBalance = () => ({
+  type: GET_BALANCE,
 })
 
 export const getProfile = (payload) => ({

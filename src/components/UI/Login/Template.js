@@ -4,34 +4,36 @@ import Header from './Header'
 import * as Yup from 'yup';
 import {useDispatch} from "react-redux";
 import {showLogin} from "../../../store/actions/modalLogin";
-import {getProfile, setToken} from "../../../store/actions/auth";
+import {setToken, setUser} from "../../../store/actions/auth";
+import {logIn} from "../../../store/actions/logInOut";
+import {showRegister} from "../../../store/actions/modalRegister";
 
 const Login = (props) => {
   const dispatch = useDispatch()
   const handleRegister = (body) => {
-    fetch(`http://localhost:1717/registr`, {
+    fetch(`http://127.0.0.1:8000/register/`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
     })
   }
   const handleLogin = (body) => {
-    // e.preventDefault()
-    fetch(`http://localhost:1717/auth`, {
+    fetch('http://127.0.0.1:8000/login/', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
     })
       .then((response) => {
-        if (!response.ok) throw response.status
         return response.json()
       })
       .then( data => {
-        dispatch(getProfile({...data.user.data}))
-        dispatch(setToken(data.user.token))
+        console.log(data)
+        // dispatch(setUser({...data}))
+        // dispatch(setToken(data.access_token))
+        // dispatch(logIn())
       })
       .catch(e => {
-        console.log({message: e.message})
+        console.log( e.message )
       })
   }
   return (
@@ -55,23 +57,19 @@ const Login = (props) => {
         validationSchema={
           props.title === 'Вход' ?
             Yup.object().shape({
-              login: Yup.string()
+              phone: Yup.string()
                 .required('Введите никнейм!'),
-              email: Yup.string()
-                .email('Неправильный формат')
+              name: Yup.string()
                 .required('Введите почту!'),
               password: Yup.string()
-                .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),
             }) :
             Yup.object().shape({
-              login: Yup.string()
+              phone: Yup.string()
                 .required('Введите никнейм!'),
-              email: Yup.string()
-                .email('Неправильный формат')
+              name: Yup.string()
                 .required('Введите почту!'),
               password: Yup.string()
-                .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),
               confirmPassword: Yup.string()
                 .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
@@ -82,6 +80,7 @@ const Login = (props) => {
           props.title === 'Регистрация' ?
             fields => {
               handleRegister(fields)
+              dispatch(showRegister())
             }
             :
             fields => {
@@ -92,10 +91,10 @@ const Login = (props) => {
       >
         {() => (
           <Form className='loginForm'>
-            <Field type="text" name="login" placeholder='Никнейм' />
-            <ErrorMessage name="login" component="div" className='error'/>
-            <Field name="email" type="text" placeholder='Почта'/>
-            <ErrorMessage name="email" component="div" className='error'/>
+            <Field type="text" name="phone" placeholder='phone' />
+            <ErrorMessage name="name" component="div" className='error'/>
+            <Field name="name" type="text" placeholder='name'/>
+            <ErrorMessage name="name" component="div" className='error'/>
             <Field type="password" name="password" placeholder='Пароль'/>
             <ErrorMessage name="password" component="div" className='error'/>
             {
