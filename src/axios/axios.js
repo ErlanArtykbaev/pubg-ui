@@ -9,3 +9,5 @@ export default axios.create({
   //baseURL: 'localhost:8080'
   //baseURL: 'https://arenagames.io:8080'
 })
+
+console.log('hello world')

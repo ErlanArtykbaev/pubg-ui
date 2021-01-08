@@ -11,7 +11,7 @@ const Questions = () => {
   const { t } = useTranslation()
 
   return (
-    <section className='questions container'>
+    <section className='questions container' data-aos='fade-right'>
       <h1>{t('Home.questions.1')}</h1>
       <div className='item'>
         <div className='question' onClick={() => setAnswer1(!answer1)}><Chevron answer={answer1}/>{t('Home.questions.2')}?</div>

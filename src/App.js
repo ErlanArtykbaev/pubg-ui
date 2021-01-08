@@ -48,13 +48,13 @@ function App() {
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
         <Route path='/instruction' component = {InstructionPage} />
-        <Route path = '/change-password' component ={PasswordSettings} exact/>
-        <Route path = '/support' component ={SupportPage} exact/>
+        <Route path ='/change-password' component ={PasswordSettings} exact/>
+        <Route path ='/support' component ={SupportPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>
-        <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
-        <Route path = '/profile/cardIn/pay24' component = {Pay24Page} exact/>
-        <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
-        <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
+        <Route path ='/profile/cardIn' component = {ProfilePage} exact/>
+        <Route path ='/profile/cardIn/pay24' component = {Pay24Page} exact/>
+        <Route path ='/profile/cardOut' component = {ProfilePage} exact/>
+        <Route path ='/profile/createLobbie' component = {ProfilePage} exact />
         <Route path='/profile/rating' component={ProfilePage} exact />
         <Route path='/profile/settings' component={ProfilePage} exact />
         <Route component={PageNotFound} />
@@ -63,4 +63,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

@@ -12,7 +12,7 @@ const HomeInfo2 = () => {
   const { t } = useTranslation()
 
   return (
-    <section className='info-content-2 container'>
+    <section className='info-content-2 container' data-aos='fade-right'>
       <h1>{t('Home.info-2.1')}</h1>
       <div className='content'>
         <div>

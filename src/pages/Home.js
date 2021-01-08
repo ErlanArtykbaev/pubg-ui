@@ -6,6 +6,8 @@ import HomeInfo1 from '../components/Home/home-info-1'
 import HomeInfo2 from '../components/Home/home-info-2'
 import CardIn from '../components/Home/cardIn'
 import Questions from '../components/Home/questions'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 import { useTranslation } from 'react-i18next'
 
@@ -14,6 +16,7 @@ const Home = () => {
 
   React.useEffect(() => {
     window.scrollTo(0, 0)
+		Aos.init({duration: 2000})
   }, [])
   return (
     <PageTemplate>

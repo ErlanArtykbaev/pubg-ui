@@ -6,7 +6,7 @@ const CardIn = ({text, state}) => {
   const {t} = useTranslation()
 
   return (
-    <section className='cardIn container'>
+    <section className='cardIn container' data-aos='fade-left'>
       <h1>
         {
           state === 'Играть' ? 

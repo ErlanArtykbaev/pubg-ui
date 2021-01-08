@@ -13,7 +13,7 @@ const HomeInfo1 = () => {
   return (
     <section className='home-info--1 container'>
       <h1 className='title'>{t('Home.info-1.1')}</h1>
-      <div className='info-content'>
+      <div className='info-content' data-aos='fade-right'>
         <div className='info-content--left'>
           <div>
             <div className='info-text'>
