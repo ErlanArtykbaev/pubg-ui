@@ -11,9 +11,9 @@ import instr5 from '../../assets/img/instr-5.png'
 import mobReg1 from '../../assets/img/mobile_register1.jpg'
 import mobReg2 from '../../assets/img/mobile_register2.jpg'
 import mobReg3 from '../../assets/img/mobile_register3.jpg'
-import mobPubg1 from '../../assets/img/pubg-mobile-1.jpg'
-import mobPubg2 from '../../assets/img/pubg-mobile-2.jpg'
-import mobPubg3 from '../../assets/img/pubg-mobile-3.jpg'
+import mobPubg1 from '../../assets/img/pubg-mobile-1.PNG'
+import mobPubg2 from '../../assets/img/pubg-mobile-2.PNG'
+import mobPubg3 from '../../assets/img/pubg-mobile-3.PNG'
 
 const Instruction = () => {
   const { t } = useTranslation()
